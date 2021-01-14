@@ -1,0 +1,11 @@
+USE Minions
+
+ALTER TABLE Users
+DROP CONSTRAINT PK_Person;
+
+ALTER TABLE Users
+ADD CONSTRAINT PK_Person PRIMARY KEY (Id);
+
+ALTER TABLE Users
+ADD CONSTRAINT UC_Username UNIQUE (Username),
+ CONSTRAINT CHK_UsernameLength CHECK (LEN(Username) >= 3);
